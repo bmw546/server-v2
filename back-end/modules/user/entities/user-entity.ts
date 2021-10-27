@@ -1,5 +1,4 @@
 import {SessionEntity}  from "modules/authentification/entities/session-entity";
-import { PageSettingEntity } from "modules/core/entities/page-setting-entity";
 import { ImageEntity } from "modules/image/entities/image-entity";
 import { BaseIdEntity } from "modules/core/entities/base-id-entity";
 
@@ -11,16 +10,18 @@ import { BaseIdEntity } from "modules/core/entities/base-id-entity";
  */
 export interface UserEntity extends BaseIdEntity{
     username: string;
-    selectedPageSetting: PageSettingEntity[];
-    avatarImage: ImageEntity;
-    session: SessionEntity;
-    saltedUserNamePassword: string;
-    auth0Id: number;
+    password: string;
+    
     email: string;
+    auth0Id: string;
+    imageId: number;
+
 
     // -------------- Here will be what the user last saw ------------------ //
     lastMediaId: number;
     lastMediaTime: number;
-    // --------------------- Should not be in DB -------------------------- //
-    password: string;
+
+    // ------------- Here what is not on the DATABASE ---------------------- //
+    avatarImage: ImageEntity;
+    session: SessionEntity;
 }
