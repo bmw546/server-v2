@@ -1,0 +1,8 @@
+{
+    "name": "module",
+    "version": "0.1.0",
+    "description": "Nodejs Back-end server modules",
+    "dependencies": {
+        "core": "file:core"
+    }
+}

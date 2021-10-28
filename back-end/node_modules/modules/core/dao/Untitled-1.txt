@@ -1,0 +1,17 @@
+
+
+
+context('baseDao.commit(), () => {
+
+    it('should throw if postgres throws')
+
+    it('should use the data prepared by the concrete class')
+
+    it('should return the data built by the concrete class')
+    
+    it('should let the concrete class build the data', {
+        stub(pg.query, () => {a, b, c})
+
+        assert(testConcreteDao.build.args[0][0] === {a, b, c});
+    })
+})
