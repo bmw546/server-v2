@@ -1,8 +1,9 @@
 
 const PostgresQueryEntity = require('../../entities/postgres-query-entity');
-const postGres = require('../../postGres/postGresManager')
+const postGres = require('modules/postGres/postGresManager');
 
-const JsUtil = require('servercore/util/js-util');
+const JsUtil = require('modules/core/util/js-util');
+
 import {UserEntity} from '../entities/user-entity';
 
 /** @description The name of this dao table */
@@ -67,7 +68,7 @@ class UserDao{
     } 
 
     // =================== SPECIAL SQL REQUEST ===================
-    async getFromUserPw(username, hashedPassword){
+    async getFromUserPw(username:string, hashedPassword:string){
         let result = await postGres.selectQuery(new PostgresQueryEntity({
             command: `SELECT * FROM ${tableName} WHERE username = $1 AND password = $2`,
             parameters: [username, hashedPassword]
@@ -100,14 +101,14 @@ class UserDao{
      * @description build an User entity from an postgres result.
      * @param {*} result 
      */
-    _buildEntity(result): UserEntity{
+    _buildEntity(result: any): UserEntity|undefined{
         if(JsUtil.isNill(result))
             return undefined;
 
         let user = new UserEntity();
         user.id = result.id;
         user.username = result.username;
-        user.password = null; // We do not get the password (even if hash it will stay in SQL)
+        user.password = ""; // We do not get the password (even if hash it will stay in SQL)
         user.email = result.email;
         user.auth0Id = result.auth0Id;
         user.avatarImage = null; //TODO result.avatarImageId

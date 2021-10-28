@@ -4,5 +4,8 @@
     "description": "Nodejs Back-end server modules",
     "dependencies": {
         "core": "file:core"
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.6"
     }
 }

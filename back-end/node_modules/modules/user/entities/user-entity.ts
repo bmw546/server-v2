@@ -10,20 +10,20 @@ import { BaseIdEntity } from "modules/core/entities/base-id-entity";
  * @description Entity that will hold the user.
  */
 export class UserEntity extends BaseIdEntity{
-    username: string;
-    password: string;
+    username: string | undefined;
+    password: string| undefined;
     
-    email: string;
-    auth0Id: string;
-    imageId: number;
+    email: string| undefined;
+    auth0Id: string| undefined;
+    imageId: number| undefined;
 
 
     // -------------- Here will be what the user last saw ------------------ //
-    lastMediaId: number;
-    lastMediaTime: number;
+    lastMediaId: number| undefined;
+    lastMediaTime: number| undefined;
 
     // ------------- Here what is not on the DATABASE ---------------------- //
-    avatarImage: ImageEntity;
-    session: SessionEntity;
+    avatarImage: ImageEntity| undefined;
+    session: SessionEntity| undefined;
 
 }
