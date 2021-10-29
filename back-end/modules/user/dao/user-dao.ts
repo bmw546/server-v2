@@ -7,7 +7,7 @@ const JsUtil = require('modules/core/util/js-util');
 import {UserEntity} from '../entities/user-entity';
 
 /** @description The name of this dao table */
-const tableName = "user_table";
+const tableName = require('../user-table').tableName
 class UserDao{
     // ======================== CRUD =============================
 
@@ -59,7 +59,7 @@ class UserDao{
     }  
 
     // DELETE
-    async deleteId(id: string){
+    async deleteId(id: number){
         let result = await postGres.selectQuery(new PostgresQueryEntity({
             command: `DELETE FROM ${tableName} WHERE id = $1`,
             parameters: [id]

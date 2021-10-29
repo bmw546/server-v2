@@ -1,14 +1,15 @@
 import {BaseTable} from '../codeModules/coreBaseTable';
 const PostGres = require('modules/postGres/postGresManager.js');
 export class userTable implements BaseTable{
-    tableName: string = "User";
+    tableName: string = "Group";
+    tableAssoc: string = "UserGroup";
     /**
      * Function that will create the table needed for the user
      * @param conn PostGres
      */
     createTable(conn: typeof PostGres): void {
-        conn.executeQuery("CREATE TABLE "+ this.tableName +" (id int NOT NULL AUTO_INCREMENT, username string, password string, "+
-        "email string, auth0Id string, imageId int, lastMediaId int, lastMediaTime int)");
+        conn.executeQuery("CREATE TABLE "+ this.tableName +" (id int NOT NULL AUTO_INCREMENT, name string, description string)");
+        conn.executeQuery("CREATE TABLE "+ this.tableAssoc +" (idGroup int, idUser int)");
     }
 
     /**
@@ -17,6 +18,7 @@ export class userTable implements BaseTable{
      */
     dropTable(conn: typeof PostGres): void {
         conn.executeQuery("DROP TABLE "+ this.tableName);
+        conn.executeQuery("DROP TABLE "+ this.tableAssoc);
     }
 
 }
