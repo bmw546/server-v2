@@ -6,8 +6,8 @@ const JsUtil = require('modules/core/util/js-util');
 import {GroupEntity} from '../entities/groupEntities';
 
 /** @description The name of this dao table */
-const tableName = require('../group-table').tableName;
-const tableAssoc = require('../group-table').tableAssoc;
+import { tableName } from '../group-table'
+import { tableAssoc } from '../group-table'
 class GroupDao{
     // ======================== CRUD =============================
     // CREATE

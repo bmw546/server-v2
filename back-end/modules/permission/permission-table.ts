@@ -1,13 +1,15 @@
 import {BaseTable} from '../codeModules/coreBaseTable';
 const PostGres = require('modules/postGres/postGresManager.js');
+
+export const tableName = 'Permission'
 export class permissionTable implements BaseTable{
-    tableName: string = "Permission";
+
     /**
      * Function that will create the table needed for the permission
      * @param conn PostGres
      */
     createTable(conn: typeof PostGres): void {
-        conn.executeQuery("CREATE TABLE "+ this.tableName +" (id int NOT NULL AUTO_INCREMENT,"+
+        conn.executeQuery("CREATE TABLE "+ tableName +" (id int NOT NULL AUTO_INCREMENT,"+
         "read boolean, write boolean, delete boolean, userId int, groupId int, giveAccessToId int, applicationId int)");
     }
 
@@ -16,7 +18,7 @@ export class permissionTable implements BaseTable{
      * @param conn PostGres
      */
     dropTable(conn: typeof PostGres): void {
-        conn.executeQuery("DROP TABLE "+ this.tableName);
+        conn.executeQuery("DROP TABLE "+ tableName);
     }
 
 }

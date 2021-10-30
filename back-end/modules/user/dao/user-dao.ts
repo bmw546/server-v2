@@ -7,7 +7,7 @@ const JsUtil = require('modules/core/util/js-util');
 import {UserEntity} from '../entities/user-entity';
 
 /** @description The name of this dao table */
-const tableName = require('../user-table').tableName
+import { tableName } from '../user-table'
 class UserDao{
     // ======================== CRUD =============================
 

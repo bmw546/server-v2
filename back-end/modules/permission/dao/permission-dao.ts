@@ -6,8 +6,7 @@ const JsUtil = require('modules/core/util/js-util');
 import {PermissionEntity} from '../entities/permissionEntities';
 
 /** @description The name of this dao table */
-const tableName = require('../group-table').tableName;
-const tableAssoc = require('../group-table').tableAssoc;
+import { tableName } from '../permission-table'
 class PermissionDao{
     // ======================== CRUD =============================
     // CREATE

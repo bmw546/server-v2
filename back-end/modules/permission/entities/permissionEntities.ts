@@ -1,7 +1,7 @@
 import { BaseIdEntity } from "modules/core/entities/base-id-entity";
 
 /**
- * @description Entity that will hold the group.
+ * @description Entity that will hold the permissions.
  */
 export class PermissionEntity extends BaseIdEntity{
     read: boolean;
